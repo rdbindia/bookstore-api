@@ -19,11 +19,11 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->title(),
+            'title' => $this->faker->word(),
             'description' => $this->faker->paragraph(),
             'publisher_id' => $this->faker->randomElement(Publisher::pluck('publisher_id')),
             'author_id' => $this->faker->randomElement(Author::pluck('author_id')),
-            'cover_photo' => $this->faker->image('public/storage', 640, 480, null, false),
+            'cover_photo' => $this->faker->image(storage_path(), 640, 480, null, false),
             'price' => $this->faker->numberBetween(100,1000),
         ];
     }

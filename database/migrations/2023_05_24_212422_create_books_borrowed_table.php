@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreign('book_id')->references('book_id')->on('books');
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->dateTime('borrowed_on');
+            $table->dateTime('returned_on');
             $table->timestamps();
         });
     }

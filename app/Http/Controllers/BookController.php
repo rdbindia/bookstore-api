@@ -13,8 +13,28 @@ class BookController extends Controller
         return Book::all();
     }
 
-    public function show($id)
+    /**
+     * @param \App\Models\Book $book
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Book $book)
     {
-        return Book::find($id);
+        return [
+            "status" => 1,
+            "data" => $book
+        ];
+    }
+
+    public function destroy(Book $book)
+    {
+        $this->middleware('auth');
+        $this->middleware('manager'); //or moderate or whatever
+
+        $book->delete();
+        return [
+            "status" => 1,
+            "data" => $book,
+            "msg" => "Book deleted successfully"
+        ];
     }
 }

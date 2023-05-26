@@ -17,8 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/books', [BookController::class, 'index']);
-Route::get('/books/{id}', [BookController::class, 'show']);
+Route::resource('books', BookController::class);
 Route::post('/borrowed-books', [BookBorrowedController::class, 'borrowedBooksByUser']);
 
 

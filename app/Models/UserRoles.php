@@ -15,4 +15,5 @@ class UserRoles extends Model
     public $fillable = [
         'role',
     ];
+
 }
